@@ -1,0 +1,15 @@
+#!/bin/bash
+set -x
+SESSION=`basename $PWD`
+
+tmux -2 new-session -d -s $SESSION
+tmux split-window -h
+tmux select-pane -t 0
+tmux split-window -v 
+tmux select-pane -t 2 
+tmux split-window -v
+
+tmux new-window -t $SESSION -a -n redshift 'redshift -l 48.8:2.32 -t 2800:2000'
+tmux select-window -t 0
+
+tmux -2 attach -t $SESSION
