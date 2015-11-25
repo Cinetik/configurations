@@ -1,0 +1,63 @@
+'.source.js':
+	'ngdirective default':
+		'prefix': 'ctkDirective'
+		'body': """
+		(function (angular) {
+			'use strict';
+
+			angular.module('$1').directive('$2', $3);
+
+			function $3() {
+				return {
+					restrict: 'AE',
+					controller: $4,
+					controllerAs: 'vm',
+					templateUrl: '$5'
+				};
+
+				function $4() {
+					var vm = this;
+				}
+			}
+		})(window.angular);
+		"""
+	'ngcontroller default':
+		'prefix': 'ctkController'
+		'body': """
+		(function (angular) {
+			'use strict';
+
+			angular.module('$1').controller('$2', $3);
+
+			function $3() {
+				var vm = this;
+			}
+
+		})(window.angular);
+		"""
+	'ngfactory default':
+		'prefix': 'ctkFactory'
+		'body': """
+		(function (angular) {
+			'use strict';
+
+			angular.module('$1').factory('$2', $3);
+
+			function $3() {
+				var service = {};
+
+				return service;
+			}
+
+		})(window.angular);
+		"""
+	'ngmodule default':
+		'prefix': 'ctkModule'
+		'body': """
+		(function (angular) {
+			'use strict';
+
+			angular.module('$1', []);
+
+		})(window.angular);
+		"""
